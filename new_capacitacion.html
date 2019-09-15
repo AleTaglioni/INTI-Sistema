@@ -9,10 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>INTI Red TG - Busqueda De Visitas</title>
+  <title>INTI Red TG - Nuevo Proyecto</title>
   
   <link rel="shortcut icon" type="image/x-icon" href="imagenes/logoICO.ico" />
-
+  
+  <!-- Needed to DateTimeTimer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/flatly/bootstrap.min.css">
+  <link href="vendor/datatimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -89,7 +93,7 @@
 
   <div id="wrapper">
 
-    <!-- Barra lateral -->
+    <!-- Sidebar -->
    <ul class="sidebar navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="principal.html">
@@ -104,7 +108,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="new_cliente.html"><i class="fas fa-plus-circle"></i>&nbsp;Nuevo cliente</a>
-          <a class="dropdown-item" href="buscar_cliente.html"><i class="fas fa-search"></i>&nbsp;Buscar asistencias</a>
+          <a class="dropdown-item" href="buscar_clientes.html"><i class="fas fa-search"></i>&nbsp;Buscar clientes</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -158,7 +162,6 @@
           <a class="dropdown-item" href="new_produccion.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva Producción</a>
           <a class="dropdown-item" href="buscar_produccion.html"><i class="fas fa-search"></i>&nbsp;Buscar Producción</a>
         </div>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
@@ -175,179 +178,99 @@
 
       <div class="container-fluid">
 
-        <!-- Titulo-->
+        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="#">Panel de control</a>
           </li>
-          <li class="breadcrumb-item active">Busqueda de visitas</li>
+          <li class="breadcrumb-item active">Nueva Capacitación</li>
         </ol>
 
-        <!-- Formulario-->
+        <!-- Area Chart Example-->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-fw fa-plus-circle"></i>
-            Buscar visitas por:</div>
+            Agregar nueva capacitación</div>
           <div class="card-body">
             <form>
               <div class="form-row">
-                <div class="form-group col-md-1 col-3">
-                  <label for="inputCuit">CUIT</label>
-                  <input type="number" class="form-control" id="inputEmail4" placeholder="" min="1" max="99" maxlength="2">
+                <div class="form-group col-md-4">
+                  <label for="inputTitulo">Titulo</label>
+                  <input type="text" class="form-control" id="inputTitulo" placeholder="Ingresar titulo de la capacitación">
                 </div>
-                <div class="form-group col-md-2 col-6">
-                  <label for="inputCuit" >&nbsp;</label>
-                  <input type="number" class="form-control" id="inputEmail4" placeholder="" min="1" max="99999999">
-                </div>
-                <div class="form-group col-md-1 col-3">
-                  <label for="inputCuit">&nbsp;</label>
-                  <input type="number" class="form-control" id="inputEmail4" placeholder="" min="1" max="9">
-                </div>
-                <div class="form-group date form_datetime col-md-2">
-                  <label class="control-label" for="datetimepicker-default">Fecha</label>
-	              <input type='text' class="form-control" id='datetimepicker1' placeholder="Ingresar fecha" />
-                </div>
-                <div class="form-group col-md-3 col-sm-12">
-                  <label for="inputTipo">ID Asistencia</label>
-                  <input type="text" class="form-control" id="inputCliente" placeholder="Ingresar si esta vinculado a una asistencia">
-                </div>
-                <div class="form-group col-md-3 col-sm-12">
+                <div class="form-group col-md-4">
                   <label for="inputIdproyecto">ID Proyecto</label>
-                  <input type="text" class="form-control" id="inputCliente" placeholder="Ingresar si esta vinculado a un proyecto">
+	                <input type='text' class="form-control" id='inputIDProyecto' placeholder="Ingresar si esta vinculada a un proyecto" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="selectTipo">Tipo</label>
+                  <select class="form-control" id="selectTipo">
+                      <option>Seleccionar...</option>
+                      <option>Taller</option>
+                      <option>Online</option>
+                      <option>Otro</option>
+                  </select>
                 </div>
               </div>
-                <div class="form-group col-md-12">
-                  <label for="exampleFormControlSelect2">Seleccionar asesores</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                      <option>Asesor 1</option>
-                      <option>Asesor 2</option>
-                      <option>Asesor 3</option>
-                      <option>Asesor 4</option>
-                      <option>Asesor 5</option>
-                    </select>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputEmpresa">Nombre de empresa</label>
+                      <input type="text" class="form-control" id="inputEmpresa" placeholder="Ingresar nombre de la empresa a agregar">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="inputTitulo">Nombre de asistente</label>
+                      <input type="text" class="form-control" id="inputAsistente" placeholder="Ingresar nombre del asistente a agregar">
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <button type="" class="btn btn-primary">Agregar</button>
+                      <button type="" class="btn btn-primary">Borrar</button> *Debe seleccionar una empresa de abajo para borrarla.
+                  </div>
+                  <div class="form-group col-md-6">
+                      <button type="" class="btn btn-primary">Agregar</button>
+                      <button type="" class="btn btn-primary">Borrar</button> *Debe seleccionar un asistente de abajo para borrarlo.
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="exampleFormControlSelect2">Empresas agregadas</label>
+                      <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlSelect2">Asistentes agregados</label>
+                        <select multiple class="form-control" id="exampleFormControlSelect2">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group date form_datetime col-md-6">
+                  <label class="control-label" for="datetimepicker-default">Fecha Inicio</label>
+	                <input type='text' class="form-control" id='datetimepicker1' placeholder="Ingresar fecha..." />
                 </div>
+                <div class="form-group date form_datetime col-md-6">
+                    <label class="control-label" for="datetimepicker-default">Fecha Fin</label>
+                    <input type='text' class="form-control" id='datetimepicker2' placeholder="Ingresar fecha..." />
+                </div>
+              </div>
               <div class="form-group">
+                <label for="inputAddress2">Observaciones</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingresar observaciones"></textarea>
               </div>
+              <a href="buscar_capacitacion.html"><p>Puede ver las capacitaciones AQUI</p></a>
               <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
-          </div>
-        </div>
-        
-        <!-- Tabla de resultados -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Asistencias encontradas:</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>CUIT</th>
-                    <th>Nombre</th>
-                    <th>Localidad</th>
-                    <th>Actividad</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>CUIT</th>
-                    <th>Nombre</th>
-                    <th>Localidad</th>
-                    <th>Actividad</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                <!--
-                 <?php
-                 /*   
-                  include_once 'vendor/php/conexion.php';
-
-                  $sql="SELECT * FROM usuarios";
-                  $result = mysqli_query($conn,$sql); 
-                  
-                  while ($row = $result->fetch_assoc()){
-                  ?>
-                 
-                  <tr>
-                    <td><?php echo $row['id_usuarios']?></td>
-                    <td><?php echo $row['usuario']?></td>
-                    <td><?php echo $row['clave']?></td>
-                    <td><?php echo $row['roles_id_roles']?></td>
-                  </tr>
-                  <?php
-                    }*/
-                    ?>
-                  -->
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                    <td>22</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>33</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Integration Specialist</td>
-                    <td>New York</td>
-                    <td>61</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Sales Assistant</td>
-                    <td>San Francisco</td>
-                    <td>59</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Integration Specialist</td>
-                    <td>Tokyo</td>
-                    <td>55</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Javascript Developer</td>
-                    <td>San Francisco</td>
-                    <td>39</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Software Engineer</td>
-                    <td>Edinburgh</td>
-                    <td>23</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Office Manager</td>
-                    <td>London</td>
-                    <td>30</td>
-                  </tr>
-                  <tr>
-                    <td>30-71031609-7</td>
-                    <td>Support Lead</td>
-                    <td>Edinburgh</td>
-                    <td>22</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
 
@@ -395,21 +318,51 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
+  
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Popper JS -->
+  <script src="vendor/datatimepicker/popper.min.js"></script>
+
+  <!-- Datepicker moment with locales -->
+  <script src="vendor/datatimepicker/moment.min.js" type="text/javascript"></script>
+
+  <script src="vendor/datatimepicker/bootstrap-datetimepicker.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>-->
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
+     <script src="js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+  
+  <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    timeZone:'UTC -3',
+                    format:'DD/MM/YYYY HH:mm',
+                    icons: {time:'far fa-clock'}
+                    
+                });
+            });
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    timeZone:'UTC -3',
+                    format:'DD/MM/YYYY HH:mm',
+                    icons: {time:'far fa-clock'}
+                    
+                });
+            });
+      
+      //format: 'DD/MM/YYYY'
+  </script>
 
 </body>
 

@@ -9,10 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>INTI Red TG - Nuevo Cliente</title>
+  <title>INTI Red TG - Nueva Asistencia</title>
   
   <link rel="shortcut icon" type="image/x-icon" href="imagenes/logoICO.ico" />
-
+  
+  <!-- Needed to DateTimeTimer-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/flatly/bootstrap.min.css">
+  <link href="vendor/datatimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -97,32 +101,14 @@
           <span>Tablero principal</span>
         </a>
       </li>
-      <!--
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
-      </li>
-      -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-id-badge"></i>
           <span>Clientes</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="nuevo_cliente.html"><i class="fas fa-plus-circle"></i>&nbsp;Nuevo cliente</a>
-          <a class="dropdown-item" href="buscar_cliente.html"><i class="fas fa-search"></i>&nbsp;Buscar clientes</a>
+          <a class="dropdown-item" href="new_cliente.html"><i class="fas fa-plus-circle"></i>&nbsp;Nuevo cliente</a>
+          <a class="dropdown-item" href="buscar_clientes.html"><i class="fas fa-search"></i>&nbsp;Buscar clientes</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -131,8 +117,8 @@
           <span>Asistencias Técnicas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="nueva_asistencia.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva asistencia</a>
-          <a class="dropdown-item" href="buscar_asistencias.html"><i class="fas fa-search"></i>&nbsp;Buscar asistencias</a>
+          <a class="dropdown-item" href="new_asistencia.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva asistencia</a>
+          <a class="dropdown-item" href="buscar_asistencia.html"><i class="fas fa-search"></i>&nbsp;Buscar asistencias</a>
           <a class="dropdown-item" href="finalizar_asistencia.html"><i class="fas fa-check"></i></i>&nbsp;Finalizar asistencia</a>
         </div>
       </li>
@@ -142,7 +128,7 @@
           <span>Proyectos</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="nuevo_proyecto.html"><i class="fas fa-plus-circle"></i>&nbsp;Nuevo Proyecto</a>
+          <a class="dropdown-item" href="new_proyecto.html"><i class="fas fa-plus-circle"></i>&nbsp;Nuevo Proyecto</a>
           <a class="dropdown-item" href="buscar_proyecto.html"><i class="fas fa-search"></i>&nbsp;Buscar Proyecto</a>
           <a class="dropdown-item" href="finalizar_proyecto.html"><i class="fas fa-check"></i></i>&nbsp;Finalizar Proyecto</a>
         </div>
@@ -153,8 +139,8 @@
           <span>Visitas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="login.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva visita</a>
-          <a class="dropdown-item" href="register.html"><i class="fas fa-search"></i>&nbsp;Buscar visita</a>
+          <a class="dropdown-item" href="new_visita.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva visita</a>
+          <a class="dropdown-item" href="buscar_visita.html"><i class="fas fa-search"></i>&nbsp;Buscar visita</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -163,8 +149,8 @@
           <span>Capacitaciones</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="login.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva capacitación</a>
-          <a class="dropdown-item" href="register.html"><i class="fas fa-search"></i>&nbsp;Buscar capacitación</a>
+          <a class="dropdown-item" href="new_capacitacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Nueva capacitación</a>
+          <a class="dropdown-item" href="buscar_capacitacion.html"><i class="fas fa-search"></i>&nbsp;Buscar capacitación</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -198,47 +184,49 @@
           <li class="breadcrumb-item">
             <a href="#">Panel de control</a>
           </li>
-          <li class="breadcrumb-item active">Nuevos Clientes</li>
+          <li class="breadcrumb-item active">Nuevas Asistencias</li>
         </ol>
 
         <!-- Area Chart Example-->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-fw fa-plus-circle"></i>
-            Agregar nuevo cliente</div>
+            Agregar nueva asistencia</div>
           <div class="card-body">
             <form>
               <div class="form-row">
-                <div class="form-group col-md-1 col-sm-3">
+                <div class="form-group col-md-1 col-3">
                   <label for="inputCuit">CUIT</label>
                   <input type="number" class="form-control" id="inputEmail4" placeholder="" min="1" max="99" maxlength="2">
                 </div>
-                <div class="form-group col-md-4 col-sm-6">
+                <div class="form-group col-md-2 col-6">
                   <label for="inputCuit" >&nbsp;</label>
                   <input type="number" class="form-control" id="inputEmail4" placeholder="" min="1" max="99999999">
                 </div>
-                <div class="form-group col-md-1 col-sm-3">
+                <div class="form-group col-md-1 col-3">
                   <label for="inputCuit">&nbsp;</label>
                   <input type="number" class="form-control" id="inputEmail4" placeholder="" min="1" max="9">
                 </div>
-                <div class="form-group col-md-6 col-sm-12">
-                  <label for="inputPassword4">Nombre del cliente</label>
-                  <input type="text" class="form-control" id="inputCliente" placeholder="Ingresar nombre del cliente">
+                <div class="form-group col-md-2 col-sm-12">
+                  <label for="inputTipo">Tipo</label>
+                  <input type="text" class="form-control" id="inputCliente" placeholder="Ingresar tipo...">
+                </div>
+                <div class="form-group col-md-3 col-sm-12">
+                  <label for="inputIdproyecto">ID_Proyecto</label>
+                  <input type="text" class="form-control" id="inputCliente" placeholder="Ingresar si esta vinculado a un proyecto...">
+                </div>
+                <div class="form-group date form_datetime col-md-3">
+                  <label class="control-label" for="datetimepicker-default">Fecha</label>
+	              <input type='text' class="form-control" id='datetimepicker1' placeholder="Ingresar fecha..." />
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-sm-6">
-                  <label for="inputAddress">Localidad</label>
-                  <input type="text" class="form-control" id="inputCiudad" placeholder="Ingresar o seleccionar localidad">
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="inputAddress2">Actividad</label>
-                  <input type="text" class="form-control" id="inputActividad" placeholder="Ingresar o seleccionar actividad">
-                </div>
+              <div class="form-group">
+                <label for="inputAddress2">Observaciones</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingresar observaciones"></textarea>
               </div>
-              <a href="buscar_cliente.html"><p>Puede ver los clientes AQUI</p></a>
               <div class="form-group">
               </div>
+              <a href="buscar_asistencia.html"><p>Puede ver las asistencias AQUI</p></a>
               <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
           </div>
@@ -288,21 +276,43 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
+  
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Popper JS -->
+  <script src="vendor/datatimepicker/popper.min.js"></script>
+
+  <!-- Datepicker moment with locales -->
+  <script src="vendor/datatimepicker/moment.min.js" type="text/javascript"></script>
+
+  <script src="vendor/datatimepicker/bootstrap-datetimepicker.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>-->
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
+     <script src="js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+  
+  <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    timeZone:'UTC -3',
+                    format:'DD/MM/YYYY HH:mm',
+                    icons: {time:'far fa-clock'}
+                    
+                });
+            });
+      
+      //format: 'DD/MM/YYYY'
+        </script>
 
 </body>
 
